@@ -6,6 +6,7 @@ require_relative './pubsub/publisher'
 require_relative './pubsub/processor'
 require_relative './pubsub/google_cloud'
 require_relative './pubsub/failed_jobs_consumer'
+require_relative './pubsub/scheduler'
 
 module Pubsub
   DEFAULT_WORKER_OPTIONS = {
