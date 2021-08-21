@@ -1,24 +1,18 @@
-# README
+# Kisi PubSub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo uses google pubsub to handle active job enqeue and processes the jobs. It stores basic stats in a database table named `worker_stats`.
 
-Things you may want to cover:
+## Setup
+Clone the repo from github and use rails standard setup to setup the project. Make sure that you have setup the `GOOGLE_APPLICATION_CREDENTIALS`. You can use this comamnd:
 
-* Ruby version
+`export GOOGLE_APPLICATION_CREDENTIALS="/path/to/the/json/file"`
 
-* System dependencies
+Also disable spring:
+`export DISABLE_SPRING=true`
 
-* Configuration
+## Running Backend Job Server
+Use this command to run the backend job server:
+`./bin/pubsub`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Running A Test Job
+I have create a job to test the google pubsub, you can use `MessageJob` calss for testing. First argument can be a string and second argument can be used to raise an error by passing a `true` value.
